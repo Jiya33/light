@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>补光灯应用测试</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">网感补光灯</div>
+    
+    <div class="main-content">
+        <div class="title-area">
+            <div class="subtitle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>点击补光区域/键全屏</span>
+            </div>
+        </div>
+
+        <div class="light-area-wrapper">
+            <div class="light-area" id="lightArea"></div>
+            <button class="fullscreen-btn" id="fullscreenBtn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="color-palette" id="colorPalette"></div>
+    </div>
+
+    <div class="color-picker-popup" id="colorPickerPopup">
+        <div class="picker-header">
+            <h3>选择颜色</h3>
+            <button class="close-picker" id="closePicker">×</button>
+        </div>
+        <div class="color-picker-container" id="colorPickerContainer">
+            <div class="color-gradient" id="colorGradient"></div>
+            <div class="picker-cursor" id="pickerCursor"></div>
+        </div>
+        <div class="hue-slider-container">
+            <div class="hue-slider" id="hueSlider">
+                <div class="hue-cursor" id="hueCursor"></div>
+            </div>
+        </div>
+        <div class="add-color-button-container">
+            <button class="add-color-btn" id="addColorBtn">添加</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
