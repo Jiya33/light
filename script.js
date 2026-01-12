@@ -119,17 +119,13 @@ function createColorItem(color, index, isCustom) {
   }
 
    // 点击事件
-   item.onclick = () => {
-     if (isCustom) {
-       // 点击自定义颜色时打开颜色选择器
-       toggleColorPicker();
-       // 设置当前选择的颜色为该自定义颜色
-       pendingColorToAdd = color;
-       // 更新颜色选择器显示为当前颜色
-       updateColorFromPicker();
-     } else {
-       selectColor(color, index);
+   item.onclick = (e) => {
+     // 阻止事件冒泡，防止在删除按钮上也触发颜色选择
+     if (isCustom && e.target.classList.contains('delete-btn')) {
+       return;
      }
+     
+     selectColor(color, index);
    };
 
   // 触摸事件处理
