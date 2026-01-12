@@ -243,13 +243,13 @@ function toggleColorPicker() {
 
 // 添加当前颜色到自定义颜色
 function addCurrentColorToCustom() {
-  if (pendingColorToAdd) {
-    const newColor = pendingColorToAdd;
-    if (!customColors.includes(newColor) && !systemColors.includes(newColor)) {
-      customColors.push(newColor);
+  // 获取当前选择的颜色（而不是使用pendingColorToAdd）
+  const currentColor = hsvToHex(selectedHue, selectedSaturation, selectedValue);
+  if (currentColor) {
+    if (!customColors.includes(currentColor) && !systemColors.includes(currentColor)) {
+      customColors.push(currentColor);
       saveData();
       renderPalette();
-      pendingColorToAdd = null;
     }
   }
 }
@@ -381,8 +381,9 @@ function bindEventListeners() {
    addColorBtn.addEventListener('click', () => {
      // 立即添加颜色
      addCurrentColorToCustom();
-     // 然后关闭选择器
-     toggleColorPicker();
+     // 直接关闭选择器（不通过toggleColorPicker，因为这会改变状态）
+     colorPickerPopup.classList.remove('show');
+     document.querySelector('.add-btn').classList.remove('active');
    });
 
   // 关闭颜色选择器
